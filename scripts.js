@@ -27,20 +27,33 @@ function dispalyBooks(books) {
 
         bookDiv.appendChild(c);
 
+        // const addNewComment 
+
         container.appendChild(bookDiv);
         console.log(bookDiv);
 
     });
 }
 
+
+function changed() {
+    console.log(1);
+}
+
 function addComments(comments) {
-    var commentDiv = document.createElement('div');
+
+    
+
+    var commentDiv = document.createElement('ul');
     commentDiv.className = 'comment';
     comments.forEach((comment, index) => {
-        var c = document.createElement('p');
-        c.innerHTML = (index + 1) + ". " + comment;
+        var c = document.createElement('li');
+        c.contentEditable = "true";
+        c.innerHTML = comment;
+        c.onchange = changed;
         commentDiv.appendChild(c);
     })
+
 
     return commentDiv;
 }
